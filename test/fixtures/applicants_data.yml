@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant_id: 
+  datum_id: 
+  value: MyString
+
+two:
+  applicant_id: 
+  datum_id: 
+  value: MyString

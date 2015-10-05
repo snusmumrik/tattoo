@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @client.name
+%p
+  %b Url:
+  = @client.url
+%p
+  %b Address:
+  = @client.address
+%p
+  %b Tel:
+  = @client.tel
+%p
+  %b Banner url:
+  = @client.banner_url
+%p
+  %b Email:
+  = @client.email
+%p
+  %b Commition:
+  = @client.commition
+%p
+  %b Condition:
+  = @client.condition
+
+= link_to 'Edit', edit_client_path(@client)
+\|
+= link_to 'Back', clients_path

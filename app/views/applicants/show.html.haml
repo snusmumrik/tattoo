@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @applicant.name
+%p
+  %b Kana:
+  = @applicant.kana
+%p
+  %b Sex:
+  = @applicant.sex
+%p
+  %b Age:
+  = @applicant.age
+%p
+  %b Tel:
+  = @applicant.tel
+%p
+  %b Email:
+  = @applicant.email
+%p
+  %b Address:
+  = @applicant.address
+
+= link_to 'Edit', edit_applicant_path(@applicant)
+\|
+= link_to 'Back', applicants_path

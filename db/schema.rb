@@ -11,7 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005070304) do
+ActiveRecord::Schema.define(version: 20151005081444) do
+
+  create_table "applicants", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "kana",       limit: 255
+    t.string   "sex",        limit: 255
+    t.string   "age",        limit: 255
+    t.string   "tel",        limit: 255
+    t.string   "email",      limit: 255
+    t.string   "address",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.datetime "deleted_at"
+  end
+
+  create_table "applicants_data", force: :cascade do |t|
+    t.integer  "applicant_id", limit: 4
+    t.integer  "datum_id",     limit: 4
+    t.string   "value",        limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "applicants_data", ["applicant_id"], name: "index_applicants_data_on_applicant_id", using: :btree
+  add_index "applicants_data", ["datum_id"], name: "index_applicants_data_on_datum_id", using: :btree
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "url",        limit: 255
+    t.string   "address",    limit: 255
+    t.string   "tel",        limit: 255
+    t.string   "banner_url", limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "commition",  limit: 4
+    t.string   "condition",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.datetime "deleted_at"
+  end
+
+  create_table "data", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.datetime "deleted_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -31,4 +77,6 @@ ActiveRecord::Schema.define(version: 20151005070304) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "applicants_data", "applicants"
+  add_foreign_key "applicants_data", "data"
 end

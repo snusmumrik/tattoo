@@ -1,0 +1,63 @@
+ja:
+  activerecord:
+    models:
+      applicant: applicant  #g
+      applicants_datum: applicants_datum  #g
+      client: client  #g
+      datum: datum  #g
+      habtm_applicants: habtm_applicants  #g
+      habtm_data: habtm_data  #g
+      user: user  #g
+
+    attributes:
+      applicant:
+        address: 住所
+        age: 年齢
+        data: data  #g
+        deleted_at: deleted_at  #g
+        email: メールアドレス
+        kana: ふりがな
+        name: 名前
+        sex: 性別
+        tel: 電話番号
+
+      applicants_datum:
+        applicant: :activerecord.models.applicant  #g
+        datum: :activerecord.models.datum  #g
+        value: value  #g
+
+      client:
+        address: address  #g
+        banner_url: banner_url  #g
+        commition: commition  #g
+        condition: condition  #g
+        deleted_at: deleted_at  #g
+        email: email  #g
+        name: name  #g
+        tel: tel  #g
+        url: url  #g
+
+      datum:
+        applicants: applicants  #g
+        name: name  #g
+
+      habtm_applicants:
+        applicant: :activerecord.models.applicant  #g
+        left_side: :activerecord.models.left_side  #g
+        value: value  #g
+
+      habtm_data:
+        datum: :activerecord.models.datum  #g
+        left_side: :activerecord.models.left_side  #g
+        value: value  #g
+
+      user:
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        email: email  #g
+        encrypted_password: encrypted_password  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
