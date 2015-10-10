@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005081444) do
+ActiveRecord::Schema.define(version: 20151006002753) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -38,6 +38,26 @@ ActiveRecord::Schema.define(version: 20151005081444) do
   add_index "applicants_data", ["applicant_id"], name: "index_applicants_data_on_applicant_id", using: :btree
   add_index "applicants_data", ["datum_id"], name: "index_applicants_data_on_datum_id", using: :btree
 
+  create_table "articles", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "text",       limit: 65535
+    t.string   "author",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.datetime "deleted_at"
+  end
+
+  create_table "articles_tags", force: :cascade do |t|
+    t.integer  "article_id", limit: 4
+    t.integer  "tag_id",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "articles_tags", ["article_id"], name: "index_articles_tags_on_article_id", using: :btree
+  add_index "articles_tags", ["tag_id"], name: "index_articles_tags_on_tag_id", using: :btree
+
   create_table "clients", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "url",        limit: 255
@@ -53,6 +73,13 @@ ActiveRecord::Schema.define(version: 20151005081444) do
   end
 
   create_table "data", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.datetime "deleted_at"
+  end
+
+  create_table "tags", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -79,4 +106,6 @@ ActiveRecord::Schema.define(version: 20151005081444) do
 
   add_foreign_key "applicants_data", "applicants"
   add_foreign_key "applicants_data", "data"
+  add_foreign_key "articles_tags", "articles"
+  add_foreign_key "articles_tags", "tags"
 end
