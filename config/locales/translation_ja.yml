@@ -3,10 +3,15 @@ ja:
     models:
       applicant: applicant  #g
       applicants_datum: applicants_datum  #g
+      article: article  #g
+      articles_tag: articles_tag  #g
       client: client  #g
       datum: datum  #g
       habtm_applicants: habtm_applicants  #g
+      habtm_articles: habtm_articles  #g
       habtm_data: habtm_data  #g
+      habtm_tags: habtm_tags  #g
+      tag: tag  #g
       user: user  #g
 
     attributes:
@@ -24,7 +29,20 @@ ja:
       applicants_datum:
         applicant: :activerecord.models.applicant  #g
         datum: :activerecord.models.datum  #g
+        deleted_at: deleted_at  #g
         value: value  #g
+
+      article:
+        author: author  #g
+        deleted_at: deleted_at  #g
+        tags: tags  #g
+        text: text  #g
+        title: title  #g
+
+      articles_tag:
+        article: :activerecord.models.article  #g
+        deleted_at: deleted_at  #g
+        tag: :activerecord.models.tag  #g
 
       client:
         address: address  #g
@@ -39,17 +57,35 @@ ja:
 
       datum:
         applicants: applicants  #g
+        deleted_at: deleted_at  #g
         name: name  #g
 
       habtm_applicants:
         applicant: :activerecord.models.applicant  #g
+        deleted_at: deleted_at  #g
         left_side: :activerecord.models.left_side  #g
         value: value  #g
 
+      habtm_articles:
+        article: :activerecord.models.article  #g
+        deleted_at: deleted_at  #g
+        left_side: :activerecord.models.left_side  #g
+
       habtm_data:
         datum: :activerecord.models.datum  #g
+        deleted_at: deleted_at  #g
         left_side: :activerecord.models.left_side  #g
         value: value  #g
+
+      habtm_tags:
+        deleted_at: deleted_at  #g
+        left_side: :activerecord.models.left_side  #g
+        tag: :activerecord.models.tag  #g
+
+      tag:
+        articles: articles  #g
+        deleted_at: deleted_at  #g
+        name: name  #g
 
       user:
         current_sign_in_at: current_sign_in_at  #g
@@ -61,3 +97,23 @@ ja:
         remember_created_at: remember_created_at  #g
         reset_password_sent_at: reset_password_sent_at  #g
         reset_password_token: reset_password_token  #g
+
+  messages:
+    created: を登録しました。
+    updated: を更新しました。
+    destroy: を削除しました。
+    are_you_sure: 本当によろしいですか？
+    unauthorided: 権限のないリクエストです
+
+  views:
+    edit: 編集
+    index: 一覧
+    new: 新規作成
+    show: 詳細
+
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
